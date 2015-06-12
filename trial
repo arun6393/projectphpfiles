@@ -1,0 +1,63 @@
+<?php
+	$response=array();
+	$curr_loc1=19.062867;
+	$curr_loc2=72.829266;
+	$destn=sithladevi;
+	$query=SELECT bus_no from bus_track3 where stop=$destn;
+
+	$con=mysql_connect('localhost','whereist_user','arun@123');
+
+		if($con) {
+			
+			
+			$r=mysql_select_db('whereist_businfo',$con);
+		}
+		else
+		{
+		echo "error1 ";	
+		}
+
+		if($r==true) {
+				$result=mysql_query($query);
+			
+			}
+			else
+			{
+				echo "error 2";
+			}
+			
+if (! $result){
+   throw new My_Db_Exception('Database error: ' . mysql_error());
+}
+
+
+if(true) {
+					$flag=0;
+					$rows = array();	//new
+					for($i=0; $row=mysql_fetch_assoc($result); $i++) {
+						$flag=1;
+						//below line new
+						//echo $row['bus_no'];
+						$rows[] = array("bus_no"=>$row['bus_no']);
+						$rows1 = array("bus_no"=>$row['bus_no']);
+						$data = array('row' => $rows);
+				
+					}
+					header('Content-Type: application/json');
+					print json_encode($data,128);
+					//print json_encode($rows1,128);
+					}
+			else
+			{
+				echo "error 3";
+			} 
+
+
+
+
+
+
+
+
+
+?>

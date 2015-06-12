@@ -1,0 +1,12 @@
+User-agent: bingbot
+Crawl-delay: 60
+
+User-agent: msnbot
+Crawl-delay: 60
+
+User-agent: msnbot-UDiscovery/2.0b
+Crawl-delay: 60
+
+User-agent: *
+Crawl-delay: 60
+
